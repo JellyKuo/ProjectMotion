@@ -9,15 +9,15 @@ namespace ProjectMotion.Feedback
 {
     class Vibrate : MotionIO
     {
-        public readonly int ID = 0x0001;
+        public readonly int id = 0x0001;
         [JsonIgnoreAttribute]
         public readonly string Name = "Vibrate";
 
         public Vibrate(int Intensity)
         {
-            this.Intensity = Intensity;
+            this.intensity = Intensity;
         }
-        public int Intensity { get; set; }
+        public int intensity { get; set; }
         
     }
 
