@@ -344,3 +344,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+### Arduino ###
+Arduino/build/
