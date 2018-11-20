@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InTheHand.Devices.Bluetooth;
+using InTheHand.Devices.Enumeration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +10,35 @@ namespace ProjectMotion
 {
     public class MotionDevice
     {
-        public string MAC { get; private set; }
-        public string Name { get; private set; }
-
-        public MotionDevice(string MAC,string Name)
+        internal DeviceInformation deviceInfo;
+        public string Name
         {
-            this.MAC = MAC;
-            this.Name = Name;
+            get
+            {
+                return deviceInfo.Name;
+            }
+        }
+        public string Id
+        {
+            get
+            {
+                return deviceInfo.Id;
+            }
+        }
+        private string _Address = null;
+        public string Address
+        {
+            get
+            {
+                if (_Address == null)
+                    _Address = Id.Replace("BLUETOOTH#", "");
+                return _Address;
+            }
+        }
+
+        internal MotionDevice(DeviceInformation deviceInfo)
+        {
+            this.deviceInfo = deviceInfo;
         }
     }
 }

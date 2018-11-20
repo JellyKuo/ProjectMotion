@@ -14,26 +14,16 @@ void loop()
 {
     if (!btSerial.available())
         return;
-    String data = btSerial.readString();
-    Serial.println("Data: " + data);
-    // StaticJsonBuffer<44> jsonBuffer;
-    // JsonObject& jObj = jsonBuffer.parseObject(data);
-    // if (jObj.success())
-    //     Serial.println("JSON parsing succeeds");
-    // else
-    // {
-    //     Serial.println("JSON parsing failed");
-    //     return;
-    // }
-    // int id = jObj["id"];
-    // Serial.println("id: " + String(id));
-    // switch (id)
-    // {
-    // case 0x0001:
-    //     int intensity = jObj["intensity"];
-    //     vibrate(intensity);
-    //     break;
-    // }
+    StaticJsonBuffer<200> jsonBuffer;
+    JsonObject& json = jsonBuffer.parseObject(btSerial);
+    int id = json["id"];
+    Serial.println("id: " + String(id));
+    switch(id){
+      case 0x1001:
+      int intensity = json["intensity"];
+      vibrate(intensity);
+      break;
+    }
 }
 
 void vibrate(int intensity)

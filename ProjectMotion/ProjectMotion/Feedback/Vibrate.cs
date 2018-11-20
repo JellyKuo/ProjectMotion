@@ -9,7 +9,7 @@ namespace ProjectMotion.Feedback
 {
     class Vibrate : MotionIO
     {
-        public readonly int id = 0x0001;
+        public readonly int id = 0x1001;
         [JsonIgnoreAttribute]
         public readonly string Name = "Vibrate";
 

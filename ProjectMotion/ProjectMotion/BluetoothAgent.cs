@@ -1,58 +1,69 @@
-﻿using InTheHand.Net;
-using InTheHand.Net.Bluetooth;
-using InTheHand.Net.Sockets;
+﻿using InTheHand.Devices.Bluetooth;
+using InTheHand.Devices.Enumeration;
+using InTheHand.Devices.Bluetooth.Rfcomm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ProjectMotion
 {
     internal class BluetoothAgent
     {
         private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        private BluetoothClient client;
-        private NetworkStream stream;
+        private BluetoothDevice device;
+        private Stream stream;
+        private readonly string SerialAQS = RfcommDeviceService.GetDeviceSelector(RfcommServiceId.SerialPort);
         public bool Connected
         {
             get
             {
-                return client.Connected;
+                return stream != null && device?.ConnectionStatus == BluetoothConnectionStatus.Connected;
             }
         }
 
         public BluetoothAgent()
         {
-            logger.Debug("Constructed");
-            client = new BluetoothClient();
+
         }
 
-        public BluetoothDeviceInfo[] GetDevices()
+        public DeviceInformation PickSingleDevice()
         {
-            logger.Debug("GetDevices");
-            var devices = client.DiscoverDevices();
-            return devices;
+            var devicePicker = new DevicePicker();
+            var deviceInfo = devicePicker.PickSingleDevice();
         }
 
-        public bool Pair(string MAC, string PIN = "1234")
+        public List<DeviceInformation> GetDevices()
         {
-            logger.Debug("Pair with MAC address {MAC} and PIN {PIN}",MAC,PIN);
-            var d = new BluetoothDeviceInfo(BluetoothAddress.Parse(MAC));
-            return BluetoothSecurity.PairRequest(d.DeviceAddress, PIN);
+            var deviceInformations = new List<DeviceInformation>();
+            foreach (var deviceInfo in DeviceInformation.FindAll(SerialAQS))
+            {
+                deviceInformations.Add(deviceInfo);
+            }
+            return deviceInformations;
         }
 
-        public bool Connect(string MAC)
+        public DevicePairingResult Pair(DeviceInformation device, string PIN = "1234")
         {
-            logger.Debug("Connect with MAC address {MAC}", MAC);
-            var ep = new BluetoothEndPoint(BluetoothAddress.Parse(MAC), BluetoothService.SerialPort);
-            client.Connect(ep);
-            stream = client.GetStream();
-            SendData("CONNECT");
-            var response = Read();
-            logger.Debug("Connect response: {response}", response);
-            return response == "OK";
+            return device.Pairing.Pair();
+        }
+
+        public bool Connect(DeviceInformation deviceInfo)
+        {
+            device = BluetoothDevice.FromDeviceInformation(deviceInfo);
+            var rfSvcsRes = device.GetRfcommServices(BluetoothCacheMode.Cached);
+            foreach (var svc in rfSvcsRes.Services)
+            {
+                if (svc.ServiceId == RfcommServiceId.SerialPort)
+                {
+                    stream = svc.OpenStream();
+                    break;
+                }
+            }
+            return stream != null;
         }
 
         public void SendData(byte[] data)
@@ -71,7 +82,7 @@ namespace ProjectMotion
             byte[] buffer = new byte[256];
             string data = "";
             int i = 0;
-            while (stream.DataAvailable && (i = stream.Read(buffer, 0, 256)) > 0)
+            while (stream.CanRead && (i = stream.Read(buffer, 0, 256)) > 0)
             {
                 data += Encoding.UTF8.GetString(buffer, 0, i);
             }

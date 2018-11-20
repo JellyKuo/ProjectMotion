@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InTheHand.Net.Personal, Version=3.5.605.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
-      <HintPath>..\packages\32feet.NET.3.5.0.0\lib\net\InTheHand.Net.Personal.dll</HintPath>
+    <Reference Include="InTheHand.Devices.Bluetooth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InTheHand.Devices.Bluetooth.4.0.1803.22-preview\lib\net35\InTheHand.Devices.Bluetooth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BluetoothAgent.cs" />
+    <Compile Include="Control\ControlExtension.cs" />
+    <Compile Include="Control\Initialize.cs" />
     <Compile Include="Feedback\FeedbackExtensions.cs" />
     <Compile Include="Feedback\Vibrate.cs" />
     <Compile Include="Input\Gyro.cs" />

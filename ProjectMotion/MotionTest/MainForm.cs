@@ -31,7 +31,7 @@ namespace MotionTest
             var devices = engine.ListDevices();
             foreach(var device in devices)
             {
-                var lvItem = new ListViewItem(device.MAC);
+                var lvItem = new ListViewItem(device.Id);
                 lvItem.SubItems.Add(device.Name);
                 lvItem.Tag = device;
                 lvBTdev.Items.Add(lvItem);
