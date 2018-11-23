@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="937a7758-1750-432c-a933-a46b7db7b5bc" Title="ProjectMotion" Url="html/e667eb2b-8ad2-2f3a-f2ee-ed42d356f346.htm">
+    <HelpTOCNode Title="CapabilityType Enumeration" Url="html/126427ac-a21a-f48b-e3e0-31588b438dd5.htm" />
+    <HelpTOCNode Id="15bb09bc-40ab-4548-be46-3b969b873a34" Title="MotionCapability Class" Url="html/ff3431a8-14bd-664e-c28a-62ab1ff522d3.htm">
+      <HelpTOCNode Title="MotionCapability Constructor " Url="html/d773083c-759f-5ef7-aac7-20c4b20de0a6.htm" />
+      <HelpTOCNode Id="ad35244f-b61d-4c3f-8941-d8c08d5ecf61" Title="MotionCapability Properties" Url="html/164294ec-2360-f781-dd8e-89109cf24ef7.htm">
+        <HelpTOCNode Title="ID Property " Url="html/b3f9ceb4-cb15-98b5-b0ca-e7df63fd7abf.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/17e87690-107e-858c-7c37-f66fa642ff11.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MotionCapability Methods" Url="html/9d464e74-ce00-93c6-ed7f-f901cf74553d.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="ae50bc6a-97eb-47f9-a399-d8d9e2cfb664" Title="MotionDevice Class" Url="html/0cc16531-ee25-9260-92d4-a28c31c2b3f8.htm">
+      <HelpTOCNode Id="2c6434b9-4e89-4239-af57-56cfe908c240" Title="MotionDevice Properties" Url="html/0df385b8-9a1a-2038-1101-072a4d05d8c6.htm">
+        <HelpTOCNode Title="Address Property " Url="html/fed1cd7e-4e55-f03d-1826-90e944b4932f.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/f030d2be-10ca-4192-5cbe-f09f694be166.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/fd112148-b20c-3c61-9683-929c1ed6d46d.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MotionDevice Methods" Url="html/05c189bf-05d3-45eb-1ddf-668763d7d6db.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="878994f6-f402-499e-8d67-4c816c807dac" Title="MotionEngine Class" Url="html/a71a7ca3-8847-deef-09ff-2b11c9f8049b.htm">
+      <HelpTOCNode Title="MotionEngine Constructor " Url="html/825e5a52-4fa1-9996-c0a8-2742c79ecec4.htm" />
+      <HelpTOCNode Id="a0e2e8ce-3448-49bf-a7b2-0ad6554d1719" Title="MotionEngine Methods" Url="html/e1bb3a39-7655-1eaf-1282-5fb329aea799.htm">
+        <HelpTOCNode Title="BeginConnectToDevice Method " Url="html/e9b12bbb-139e-4a26-3fa0-14d29fe727fb.htm" />
+        <HelpTOCNode Title="BeginListDevices Method " Url="html/840b739f-6022-c9e9-a682-e65d82c7e08a.htm" />
+        <HelpTOCNode Title="BeginPickDevice Method " Url="html/9bec9db0-f4e2-4742-99c8-f39d5cfed6b0.htm" />
+        <HelpTOCNode Title="ConnectToDevice Method " Url="html/cbc1338f-f47c-36ce-9fd2-05e34257d05c.htm" />
+        <HelpTOCNode Title="ListDevices Method " Url="html/4c0b146c-833e-ca1b-328b-c891d12e1636.htm" />
+        <HelpTOCNode Title="PickDevice Method " Url="html/96b4fbbf-e646-ab3a-4108-cc5010c6bea3.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="76e5d1fb-92d0-4722-b1aa-5d674083e0fd" Title="ProjectMotion.Feedback" Url="html/2e7bacd3-a872-7049-0fbf-ee65959b5a4b.htm">
+    <HelpTOCNode Id="ba147e92-c5ca-4b24-8ed5-736287b3a065" Title="FeedbackExtensions Class" Url="html/b87ac74e-24f0-2e5b-2359-0bd7bc78bc4e.htm">
+      <HelpTOCNode Id="94dcb5a8-212f-410d-b426-7167c1589755" Title="FeedbackExtensions Methods" Url="html/ff361d2d-5aba-bc0b-4c97-bcb327b6c424.htm">
+        <HelpTOCNode Title="Vibrate Method " Url="html/82829056-6ccc-aa38-0770-d238bc80b6c5.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="a1f383c1-ab97-436c-a5be-2969ef247e87" Title="ProjectMotion.Input" Url="html/84c27a0c-78ae-dcf9-76fd-e9e8627cd9c1.htm">
+    <HelpTOCNode Title="InputExtensions Class" Url="html/09dbdf27-f565-6390-8c33-56db4864948b.htm" />
+  </HelpTOCNode>
+</HelpTOC>
