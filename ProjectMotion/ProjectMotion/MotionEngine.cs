@@ -8,16 +8,26 @@ using ProjectMotion.Control;
 
 namespace ProjectMotion
 {
+    /// <summary>
+    /// MotionEngine base class
+    /// Only one MotionEngine should be initialized at once
+    /// </summary>
     public partial class MotionEngine
     {
         private BluetoothAgent btAgent;
 
+        /// <summary>
+        /// Initialize a new MotionEngine
+        /// </summary>
         public MotionEngine()
         {
             btAgent = new BluetoothAgent();
         }
 
-
+        /// <summary>
+        /// Prompts user to pick a paired bluetooth device using built-in UI
+        /// </summary>
+        /// <returns>MotionDevice user picked</returns>
         public MotionDevice PickDevice()
         {
             var deviceInfo = btAgent.PickSingleDevice();
@@ -25,6 +35,11 @@ namespace ProjectMotion
             return motionDevice;
         }
 
+        /// <summary>
+        /// Get a list of paired bluetooth device
+        /// Use the returned MotionDevice to be the parameter of ConnectToDevice
+        /// </summary>
+        /// <returns>A list of already paired device</returns>
         public List<MotionDevice> ListDevices()
         {
             var btDevices = btAgent.GetDevices();
@@ -37,6 +52,11 @@ namespace ProjectMotion
             return motionDevices;
         }
 
+        /// <summary>
+        /// Connect and initialize a MotionDevice
+        /// </summary>
+        /// <param name="device">The device to connect to, use ListDevices() to get the devices</param>
+        /// <returns>Connection result</returns>
         public bool ConnectToDevice(MotionDevice device)
         {
             var connectionResult = btAgent.Connect(device.deviceInfo);
@@ -46,6 +66,10 @@ namespace ProjectMotion
             return true;
         }
 
+        /// <summary>
+        /// Send data payload to the connected device
+        /// </summary>
+        /// <param name="Payload">The data to send</param>
         internal void SendData(byte[] Payload)
         {
             btAgent.SendData(Payload);
