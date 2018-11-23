@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Address property" Url="html/fed1cd7e-4e55-f03d-1826-90e944b4932f.htm" />
+  <HelpKINode Title="BeginConnectToDevice method" Url="html/e9b12bbb-139e-4a26-3fa0-14d29fe727fb.htm" />
+  <HelpKINode Title="BeginListDevices method" Url="html/840b739f-6022-c9e9-a682-e65d82c7e08a.htm" />
+  <HelpKINode Title="BeginPickDevice method" Url="html/9bec9db0-f4e2-4742-99c8-f39d5cfed6b0.htm" />
+  <HelpKINode Title="CapabilityType enumeration" Url="html/126427ac-a21a-f48b-e3e0-31588b438dd5.htm" />
+  <HelpKINode Title="ConnectToDevice method" Url="html/cbc1338f-f47c-36ce-9fd2-05e34257d05c.htm" />
+  <HelpKINode Title="FeedbackExtensions class">
+    <HelpKINode Title="FeedbackExtensions Class" Url="html/b87ac74e-24f0-2e5b-2359-0bd7bc78bc4e.htm" />
+    <HelpKINode Title="methods" Url="html/ff361d2d-5aba-bc0b-4c97-bcb327b6c424.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FeedbackExtensions.Vibrate method" Url="html/82829056-6ccc-aa38-0770-d238bc80b6c5.htm" />
+  <HelpKINode Title="Id property" Url="html/f030d2be-10ca-4192-5cbe-f09f694be166.htm" />
+  <HelpKINode Title="ID property" Url="html/b3f9ceb4-cb15-98b5-b0ca-e7df63fd7abf.htm" />
+  <HelpKINode Title="Input enumeration member" Url="html/126427ac-a21a-f48b-e3e0-31588b438dd5.htm" />
+  <HelpKINode Title="InputExtensions class" Url="html/09dbdf27-f565-6390-8c33-56db4864948b.htm" />
+  <HelpKINode Title="ListDevices method" Url="html/4c0b146c-833e-ca1b-328b-c891d12e1636.htm" />
+  <HelpKINode Title="MotionCapability class">
+    <HelpKINode Title="MotionCapability Class" Url="html/ff3431a8-14bd-664e-c28a-62ab1ff522d3.htm" />
+    <HelpKINode Title="constructor" Url="html/d773083c-759f-5ef7-aac7-20c4b20de0a6.htm" />
+    <HelpKINode Title="methods" Url="html/9d464e74-ce00-93c6-ed7f-f901cf74553d.htm" />
+    <HelpKINode Title="properties" Url="html/164294ec-2360-f781-dd8e-89109cf24ef7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MotionCapability.ID property" Url="html/b3f9ceb4-cb15-98b5-b0ca-e7df63fd7abf.htm" />
+  <HelpKINode Title="MotionCapability.MotionCapability constructor" Url="html/d773083c-759f-5ef7-aac7-20c4b20de0a6.htm" />
+  <HelpKINode Title="MotionCapability.Name property" Url="html/17e87690-107e-858c-7c37-f66fa642ff11.htm" />
+  <HelpKINode Title="MotionDevice class">
+    <HelpKINode Title="MotionDevice Class" Url="html/0cc16531-ee25-9260-92d4-a28c31c2b3f8.htm" />
+    <HelpKINode Title="methods" Url="html/05c189bf-05d3-45eb-1ddf-668763d7d6db.htm" />
+    <HelpKINode Title="properties" Url="html/0df385b8-9a1a-2038-1101-072a4d05d8c6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MotionDevice.Address property" Url="html/fed1cd7e-4e55-f03d-1826-90e944b4932f.htm" />
+  <HelpKINode Title="MotionDevice.Id property" Url="html/f030d2be-10ca-4192-5cbe-f09f694be166.htm" />
+  <HelpKINode Title="MotionDevice.Name property" Url="html/fd112148-b20c-3c61-9683-929c1ed6d46d.htm" />
+  <HelpKINode Title="MotionEngine class">
+    <HelpKINode Title="MotionEngine Class" Url="html/a71a7ca3-8847-deef-09ff-2b11c9f8049b.htm" />
+    <HelpKINode Title="constructor" Url="html/825e5a52-4fa1-9996-c0a8-2742c79ecec4.htm" />
+    <HelpKINode Title="methods" Url="html/e1bb3a39-7655-1eaf-1282-5fb329aea799.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MotionEngine.BeginConnectToDevice method" Url="html/e9b12bbb-139e-4a26-3fa0-14d29fe727fb.htm" />
+  <HelpKINode Title="MotionEngine.BeginListDevices method" Url="html/840b739f-6022-c9e9-a682-e65d82c7e08a.htm" />
+  <HelpKINode Title="MotionEngine.BeginPickDevice method" Url="html/9bec9db0-f4e2-4742-99c8-f39d5cfed6b0.htm" />
+  <HelpKINode Title="MotionEngine.ConnectToDevice method" Url="html/cbc1338f-f47c-36ce-9fd2-05e34257d05c.htm" />
+  <HelpKINode Title="MotionEngine.ListDevices method" Url="html/4c0b146c-833e-ca1b-328b-c891d12e1636.htm" />
+  <HelpKINode Title="MotionEngine.MotionEngine constructor" Url="html/825e5a52-4fa1-9996-c0a8-2742c79ecec4.htm" />
+  <HelpKINode Title="MotionEngine.PickDevice method" Url="html/96b4fbbf-e646-ab3a-4108-cc5010c6bea3.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="MotionCapability.Name Property " Url="html/17e87690-107e-858c-7c37-f66fa642ff11.htm" />
+    <HelpKINode Title="MotionDevice.Name Property " Url="html/fd112148-b20c-3c61-9683-929c1ed6d46d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Output enumeration member" Url="html/126427ac-a21a-f48b-e3e0-31588b438dd5.htm" />
+  <HelpKINode Title="PickDevice method" Url="html/96b4fbbf-e646-ab3a-4108-cc5010c6bea3.htm" />
+  <HelpKINode Title="ProjectMotion namespace" Url="html/e667eb2b-8ad2-2f3a-f2ee-ed42d356f346.htm" />
+  <HelpKINode Title="ProjectMotion.CapabilityType enumeration" Url="html/126427ac-a21a-f48b-e3e0-31588b438dd5.htm" />
+  <HelpKINode Title="ProjectMotion.Feedback namespace" Url="html/2e7bacd3-a872-7049-0fbf-ee65959b5a4b.htm" />
+  <HelpKINode Title="ProjectMotion.Feedback.FeedbackExtensions class" Url="html/b87ac74e-24f0-2e5b-2359-0bd7bc78bc4e.htm" />
+  <HelpKINode Title="ProjectMotion.Input namespace" Url="html/84c27a0c-78ae-dcf9-76fd-e9e8627cd9c1.htm" />
+  <HelpKINode Title="ProjectMotion.Input.InputExtensions class" Url="html/09dbdf27-f565-6390-8c33-56db4864948b.htm" />
+  <HelpKINode Title="ProjectMotion.MotionCapability class" Url="html/ff3431a8-14bd-664e-c28a-62ab1ff522d3.htm" />
+  <HelpKINode Title="ProjectMotion.MotionDevice class" Url="html/0cc16531-ee25-9260-92d4-a28c31c2b3f8.htm" />
+  <HelpKINode Title="ProjectMotion.MotionEngine class" Url="html/a71a7ca3-8847-deef-09ff-2b11c9f8049b.htm" />
+  <HelpKINode Title="Vibrate method" Url="html/82829056-6ccc-aa38-0770-d238bc80b6c5.htm" />
+</HelpKI>
