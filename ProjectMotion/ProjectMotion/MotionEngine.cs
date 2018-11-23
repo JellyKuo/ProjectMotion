@@ -17,10 +17,16 @@ namespace ProjectMotion
             btAgent = new BluetoothAgent();
         }
 
-        public void PickDevice()
+        public async Task<MotionDevice> BeginPickDevice()
+        {
+            return await Task.Run(() => PickDevice());
+        }
+
+        public MotionDevice PickDevice()
         {
             var deviceInfo = btAgent.PickSingleDevice();
             var motionDevice = new MotionDevice(deviceInfo);
+            return motionDevice;
         }
 
         public List<MotionDevice> ListDevices()
@@ -35,6 +41,11 @@ namespace ProjectMotion
             return motionDevices;
         }
 
+        public async Task<List<MotionDevice>> BeginListDevices()
+        {
+            return  await Task.Run(() => ListDevices());
+        }
+
         public bool ConnectToDevice(MotionDevice device)
         {
             var connectionResult = btAgent.Connect(device.deviceInfo);
@@ -42,6 +53,11 @@ namespace ProjectMotion
                 return false;
             this.Initialize();
             return true;
+        }
+
+        internal async void BeginSendData(Byte[] Payload)
+        {
+             await Task.Run(() => SendData(Payload));
         }
 
         internal void SendData(byte[] Payload)

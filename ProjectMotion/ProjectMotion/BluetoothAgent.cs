@@ -34,6 +34,7 @@ namespace ProjectMotion
         {
             var devicePicker = new DevicePicker();
             var deviceInfo = devicePicker.PickSingleDevice();
+            return deviceInfo;
         }
 
         public List<DeviceInformation> GetDevices()
