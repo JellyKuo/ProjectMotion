@@ -4,12 +4,14 @@
             "name": "Arduino",
             "includePath": [
                 "${workspaceFolder}"
+                
             ],
             "browse": {
                 "path": [
-                    "C:/Program Files (x86)/Arduino/hardware",
-                    "C:/Program Files (x86)/Arduino/libraries",
-                    "C:/Users/Jelly/Documents/Arduino/libraries/",
+                    "C:/Program Files (x86)/Arduino/hardware/**",
+                    "C:/Program Files (x86)/Arduino/libraries/**",
+                    "C:/Users/Jelly/Documents/Arduino/libraries/**",
+                    "C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/**",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
@@ -17,7 +19,6 @@
             },
             "intelliSenseMode": "msvc-x64"
         }
-
     ],
     "version": 4
 }
