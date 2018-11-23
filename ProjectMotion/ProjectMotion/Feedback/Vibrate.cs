@@ -23,6 +23,11 @@ namespace ProjectMotion.Feedback
 
     public static partial class FeedbackExtensions
     {
+        /// <summary>
+        /// Vibrates the device
+        /// </summary>
+        /// <param name="Engine">MotionEngine</param>
+        /// <param name="Intensity">The strength of the vibration</param>
         public static void Vibrate(this MotionEngine Engine, int Intensity)
         {
             var vibrate = new Vibrate(Intensity);

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectMotion.Input
 {
+    /// <summary>
+    /// Feedback extensions implementation class
+    /// </summary>
     public static partial class InputExtensions
     {
     }

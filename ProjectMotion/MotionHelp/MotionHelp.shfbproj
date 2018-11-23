@@ -36,6 +36,12 @@
     </DocumentationSources>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="ProjectMotion" isDocumented="True" xmlns="">ProjectMotion main namespace.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="ProjectMotion.Feedback" isDocumented="True" xmlns="">ProjectMotion feedback namespace
+Feedbacks will only be available after using this namespace</NamespaceSummaryItem>
+<NamespaceSummaryItem name="ProjectMotion.Input" isDocumented="True" xmlns="">ProjectMotion input namespace
+Inputs will only be available after using this namespace</NamespaceSummaryItem></NamespaceSummaries>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
