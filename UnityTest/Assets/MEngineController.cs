@@ -25,23 +25,21 @@ public class MEngineController : MonoBehaviour
         btnVib.GetComponent<Button>().onClick.AddListener(btnVib_Click);
     }
 
-    void btnScan_Click()
+    async void btnScan_Click()
     {
         var dropdown = ddDevices.GetComponent<Dropdown>();
         ddOptions.Clear();
         mDevices.Clear();
         dropdown.ClearOptions();
-        var devices = engine.ListDevices();
+        var devices = engine.BeginListDevices();
 
-        foreach (var dev in devices)
+        foreach (var dev in await devices)
         {
-            Dropdown.OptionData option = new Dropdown.OptionData(string.Format("{0} - {1}", dev.Name, dev.MAC));
+            Dropdown.OptionData option = new Dropdown.OptionData(string.Format("{0} - {1}", dev.Name, dev.Address));
             ddOptions.Add(option);
             mDevices.Add(dev);
         }
         dropdown.AddOptions(ddOptions);
-
-        //engine.PickDevice();
     }
 
     void btnConnect_Click()
