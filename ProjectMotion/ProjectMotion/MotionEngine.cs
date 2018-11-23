@@ -8,7 +8,7 @@ using ProjectMotion.Control;
 
 namespace ProjectMotion
 {
-    public class MotionEngine
+    public partial class MotionEngine
     {
         private BluetoothAgent btAgent;
 
@@ -17,10 +17,6 @@ namespace ProjectMotion
             btAgent = new BluetoothAgent();
         }
 
-        public async Task<MotionDevice> BeginPickDevice()
-        {
-            return await Task.Run(() => PickDevice());
-        }
 
         public MotionDevice PickDevice()
         {
@@ -41,11 +37,6 @@ namespace ProjectMotion
             return motionDevices;
         }
 
-        public async Task<List<MotionDevice>> BeginListDevices()
-        {
-            return  await Task.Run(() => ListDevices());
-        }
-
         public bool ConnectToDevice(MotionDevice device)
         {
             var connectionResult = btAgent.Connect(device.deviceInfo);
@@ -55,14 +46,10 @@ namespace ProjectMotion
             return true;
         }
 
-        internal async void BeginSendData(Byte[] Payload)
-        {
-             await Task.Run(() => SendData(Payload));
-        }
-
         internal void SendData(byte[] Payload)
         {
             btAgent.SendData(Payload);
         }
+        
     }
 }

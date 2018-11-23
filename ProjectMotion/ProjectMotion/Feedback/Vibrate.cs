@@ -27,7 +27,7 @@ namespace ProjectMotion.Feedback
         {
             var vibrate = new Vibrate(Intensity);
             var Payload = vibrate.EncodePayload();
-            Engine.SendData(Payload);
+            Engine.BeginSendData(Payload);
         }
     }
 }

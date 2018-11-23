@@ -25,7 +25,7 @@ namespace ProjectMotion.Control
         {
             var initialize = new Initialize();
             var Payload = initialize.EncodePayload();
-            Engine.SendData(Payload);
+            Engine.BeginSendData(Payload);
         }
     }
 }
