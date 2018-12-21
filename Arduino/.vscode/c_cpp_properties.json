@@ -8,6 +8,10 @@
             ],
             "browse": {
                 "path": [
+                    "C:\\Users\\jelly\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.6.21\\cores\\arduino",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries",
+                    "C:\\Program Files (x86\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
+                    "C:\\Users\\jelly\\Documents\\Arduino\\libraries",
                     "C:/Program Files (x86)/Arduino/hardware/**",
                     "C:/Program Files (x86)/Arduino/libraries/**",
                     "C:/Users/Jelly/Documents/Arduino/libraries/**",
