@@ -70,7 +70,6 @@
     <Compile Include="MotionEngine.cs" />
     <Compile Include="MotionEngineAsync.cs" />
     <Compile Include="MotionIO.cs" />
-    <Compile Include="MotionState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

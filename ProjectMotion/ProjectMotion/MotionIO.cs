@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectMotion
 {
+    /// <summary>
+    /// An abstract underlying layer for all Motion Inputs and Feedbacks
+    /// </summary>
     public abstract class MotionIO
     {
         internal virtual T DecodeInput<T>(string Json)

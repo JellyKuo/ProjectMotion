@@ -14,16 +14,10 @@ namespace ProjectMotion
     public partial class MotionEngine
     {
         private BluetoothAgent btAgent;
+        /// <summary>
+        /// Provides functionality for MotionInput
+        /// </summary>
         public Input.MotionInput Input;
-        private MotionState _State;
-
-        public MotionState State
-        {
-            get
-            {
-                return _State;
-            }
-        }
         
 
         /// <summary>
@@ -77,6 +71,9 @@ namespace ProjectMotion
             return true;
         }
 
+        /// <summary>
+        /// Start reading MotionInput
+        /// </summary>
         public void BeginInput()
         {
             Console.WriteLine("ENGINE BeginRead");
@@ -84,6 +81,9 @@ namespace ProjectMotion
             btAgent.StartRead();
         }
 
+        /// <summary>
+        /// Stop reading MotionInput
+        /// </summary>
         public void StopInput()
         {
             Console.WriteLine("ENGINE StopRead");

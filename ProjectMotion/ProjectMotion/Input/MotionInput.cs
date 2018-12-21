@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectMotion.Input
 {
+    /// <summary>
+    /// Motion Input class, use MotionEngine.Input to get instance
+    /// </summary>
     public class MotionInput : MotionIO
     {
         private Dictionary<int, MotionInputHandler> handlers;
@@ -15,18 +18,33 @@ namespace ProjectMotion.Input
             handlers = new Dictionary<int, MotionInputHandler>();
         }
 
+        /// <summary>
+        /// Register a handler for a Motion Input
+        /// </summary>
+        /// <param name="id">ID of the Input</param>
+        /// <param name="handler">The Motion Input Delegate to call when triggered</param>
         public void RegisterHandler(int id,MotionInputHandler handler)
         {
             //Console.WriteLine("MotionInput RegisterHandler id: " + id);
             handlers.Add(id, handler);
         }
 
+        /// <summary>
+        /// Removes a registred handler for a Motion Input
+        /// </summary>
+        /// <param name="id">ID of the Input</param>
         public void DeregisterHandler(int id)
         {
             handlers.Remove(id);
         }
 
-        public T DecodeInput<T>(string Json)
+        /// <summary>
+        /// Decode a Motion Input Json to a Motion Input Type
+        /// </summary>
+        /// <typeparam name="T">The Motion Type to deserialize to</typeparam>
+        /// <param name="Json">The Json string to parse</param>
+        /// <returns>The deserialized object</returns>
+        public new T DecodeInput<T>(string Json)
         {
             return base.DecodeInput<T>(Json);
         }
@@ -46,5 +64,10 @@ namespace ProjectMotion.Input
         }
 
     }
+
+    /// <summary>
+    /// Delegate for Motion Input
+    /// </summary>
+    /// <param name="json">The received Json string</param>
     public delegate void MotionInputHandler(string json);
 }
