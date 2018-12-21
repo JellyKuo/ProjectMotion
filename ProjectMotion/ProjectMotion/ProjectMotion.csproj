@@ -59,17 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BluetoothAgent.cs" />
-    <Compile Include="Control\ControlExtension.cs" />
-    <Compile Include="Control\Initialize.cs" />
+    <Compile Include="Control\ControlExtensions.cs" />
+    <Compile Include="Control\SetRead.cs" />
     <Compile Include="Feedback\FeedbackExtensions.cs" />
     <Compile Include="Feedback\Vibrate.cs" />
     <Compile Include="Input\Gyro.cs" />
-    <Compile Include="Input\InputExtensions.cs" />
+    <Compile Include="Input\MotionInput.cs" />
     <Compile Include="MotionCapability.cs" />
     <Compile Include="MotionDevice.cs" />
     <Compile Include="MotionEngine.cs" />
     <Compile Include="MotionEngineAsync.cs" />
     <Compile Include="MotionIO.cs" />
+    <Compile Include="MotionState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

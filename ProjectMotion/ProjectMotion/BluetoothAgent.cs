@@ -8,15 +8,18 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace ProjectMotion
 {
     internal class BluetoothAgent
     {
-        private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private BluetoothDevice device;
         private Stream stream;
         private readonly string SerialAQS = RfcommDeviceService.GetDeviceSelector(RfcommServiceId.SerialPort);
+        private CancellationTokenSource cancellationTkSrc;
+        private Thread readTaskThread;
+
         public bool Connected
         {
             get
@@ -55,7 +58,14 @@ namespace ProjectMotion
         public bool Connect(DeviceInformation deviceInfo)
         {
             device = BluetoothDevice.FromDeviceInformation(deviceInfo);
-            var rfSvcsRes = device.GetRfcommServices(BluetoothCacheMode.Cached);
+            return Connect(device);
+        }
+
+        public bool Connect(BluetoothDevice device = null)
+        {
+            if (device == null)
+                device = this.device;
+            var rfSvcsRes = device.GetRfcommServices(BluetoothCacheMode.Uncached);
             foreach (var svc in rfSvcsRes.Services)
             {
                 if (svc.ServiceId == RfcommServiceId.SerialPort)
@@ -69,7 +79,6 @@ namespace ProjectMotion
 
         public void SendData(byte[] data)
         {
-            logger.Trace("SendData Payload: {data}", data);
             stream.Write(data, 0, data.Length);
         }
 
@@ -78,17 +87,67 @@ namespace ProjectMotion
             SendData(Encoding.ASCII.GetBytes(s));
         }
 
-        public string Read()
+        public void StartRead()
         {
-            byte[] buffer = new byte[256];
-            string data = "";
-            int i = 0;
-            while (stream.CanRead && (i = stream.Read(buffer, 0, 256)) > 0)
+            if (!Connected)
             {
-                data += Encoding.UTF8.GetString(buffer, 0, i);
+                throw new InvalidOperationException("MotionEngine is not connected to any device.");
             }
-            data += "\r\n";
-            return data;
+            cancellationTkSrc = new CancellationTokenSource();
+            var cancellationTk = cancellationTkSrc.Token;
+
+            Task.Factory.StartNew(() =>
+            {
+                readTaskThread = Thread.CurrentThread;
+                while (!cancellationTk.IsCancellationRequested)
+                {
+                    //byte[] buffer = new byte[256];
+                    //int i = 0;
+                    //Console.WriteLine("READ");
+                    //i = stream.Read(buffer, 0, 256);
+                    //string data = Encoding.UTF8.GetString(buffer, 0, i);
+                    //Console.WriteLine($"Data length: {i}  received: {data}");
+
+                    byte[] length = new byte[1];
+                    //Console.WriteLine("READ");
+                    stream.Read(length,0,1);
+                    Console.WriteLine($"Length: {length[0]:x}");
+                    int i = 0;
+                    byte[] buffer = new byte[64];
+                    string data = "";
+                    while(length[0] > i)
+                    {
+                        buffer = new byte[64];
+                        int partLength = stream.Read(buffer, 0, 64);
+                        i += partLength;
+                        data += Encoding.ASCII.GetString(buffer, 0, partLength);
+                        //Console.WriteLine($"READ PART I:{i} DATA:{data} PL:{partLength}");
+                    }
+                    //Console.WriteLine($"READ FINISHED, DATA: {data}");
+                    OnReceiveData(data);
+                }
+                Console.WriteLine("Task cancelled");
+            }, cancellationTk);
         }
+
+        public void StopRead()
+        {
+            if (cancellationTkSrc == null)
+            {
+                throw new InvalidOperationException("Stream is not reading!");
+            }
+            cancellationTkSrc.Cancel();
+            readTaskThread.Abort();
+        }
+
+        public void ResetStream()
+        {
+            stream.Flush();
+            stream.Dispose();
+            Task.Delay(500).ContinueWith((t) => Connect());
+        }
+
+        public delegate void ReceiveDataHandler(string data);
+        public ReceiveDataHandler OnReceiveData;
     }
 }

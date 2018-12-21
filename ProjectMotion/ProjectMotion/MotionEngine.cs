@@ -10,11 +10,21 @@ namespace ProjectMotion
 {
     /// <summary>
     /// MotionEngine base class
-    /// Only one MotionEngine should be initialized at once
     /// </summary>
     public partial class MotionEngine
     {
         private BluetoothAgent btAgent;
+        public Input.MotionInput Input;
+        private MotionState _State;
+
+        public MotionState State
+        {
+            get
+            {
+                return _State;
+            }
+        }
+        
 
         /// <summary>
         /// Initialize a new MotionEngine
@@ -22,6 +32,8 @@ namespace ProjectMotion
         public MotionEngine()
         {
             btAgent = new BluetoothAgent();
+            btAgent.OnReceiveData = new BluetoothAgent.ReceiveDataHandler(ReadData);
+            Input = new Input.MotionInput();
         }
 
         /// <summary>
@@ -36,7 +48,7 @@ namespace ProjectMotion
         }
 
         /// <summary>
-        /// Get a list of paired bluetooth device
+        /// <para>Get a list of paired bluetooth device</para>
         /// Use the returned MotionDevice to be the parameter of ConnectToDevice
         /// </summary>
         /// <returns>A list of already paired device</returns>
@@ -62,8 +74,22 @@ namespace ProjectMotion
             var connectionResult = btAgent.Connect(device.deviceInfo);
             if (!connectionResult)
                 return false;
-            this.Initialize();
             return true;
+        }
+
+        public void BeginInput()
+        {
+            Console.WriteLine("ENGINE BeginRead");
+            this.SetRead(true);
+            btAgent.StartRead();
+        }
+
+        public void StopInput()
+        {
+            Console.WriteLine("ENGINE StopRead");
+            btAgent.StopRead();
+            this.SetRead(false);
+            btAgent.ResetStream();
         }
 
         /// <summary>
@@ -74,6 +100,12 @@ namespace ProjectMotion
         {
             btAgent.SendData(Payload);
         }
-        
+
+        internal void ReadData(string Data)
+        {
+            Console.WriteLine("ENGINE ReceiveData");
+            Input.ReceiveData(Data);
+        }
+
     }
 }
