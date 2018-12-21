@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectMotion</name>
+    </assembly>
+    <members>
+        <member name="T:ProjectMotion.Feedback.FeedbackExtensions">
+            <summary>
+            Feedback extensions implementation class
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.Feedback.FeedbackExtensions.Vibrate(ProjectMotion.MotionEngine,System.Int32)">
+            <summary>
+            Vibrates the device
+            </summary>
+            <param name="Engine">MotionEngine</param>
+            <param name="Intensity">The strength of the vibration</param>
+        </member>
+        <member name="T:ProjectMotion.Input.Gyro">
+            <summary>
+            Motion Input Gyro
+            </summary>
+        </member>
+        <member name="F:ProjectMotion.Input.Gyro.id">
+            <summary>
+            Motion Input ID
+            </summary>
+        </member>
+        <member name="F:ProjectMotion.Input.Gyro.Name">
+            <summary>
+            Name of the input
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.Input.Gyro.X">
+            <summary>
+            X value of the gyroscope
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.Input.Gyro.Y">
+            <summary>
+            Y value of the gyroscope
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.Input.Gyro.Z">
+            <summary>
+            Z value of the gyroscope
+            </summary>
+        </member>
+        <member name="T:ProjectMotion.Input.MotionInput">
+            <summary>
+            Motion Input class, use MotionEngine.Input to get instance
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.Input.MotionInput.RegisterHandler(System.Int32,ProjectMotion.Input.MotionInputHandler)">
+            <summary>
+            Register a handler for a Motion Input
+            </summary>
+            <param name="id">ID of the Input</param>
+            <param name="handler">The Motion Input Delegate to call when triggered</param>
+        </member>
+        <member name="M:ProjectMotion.Input.MotionInput.DeregisterHandler(System.Int32)">
+            <summary>
+            Removes a registred handler for a Motion Input
+            </summary>
+            <param name="id">ID of the Input</param>
+        </member>
+        <member name="M:ProjectMotion.Input.MotionInput.DecodeInput``1(System.String)">
+            <summary>
+            Decode a Motion Input Json to a Motion Input Type
+            </summary>
+            <typeparam name="T">The Motion Type to deserialize to</typeparam>
+            <param name="Json">The Json string to parse</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="T:ProjectMotion.Input.MotionInputHandler">
+            <summary>
+            Delegate for Motion Input
+            </summary>
+            <param name="json">The received Json string</param>
+        </member>
+        <member name="T:ProjectMotion.MotionCapability">
+            <summary>
+            Represent a function MotionDevice is capable of
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionCapability.Name">
+            <summary>
+            The friendly name of the function
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionCapability.ID">
+            <summary>
+            Function ID
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionCapability.CapabilityType">
+            <summary>
+            Type of capability
+            </summary>
+        </member>
+        <member name="T:ProjectMotion.CapabilityType">
+            <summary>
+            Motion device's capability types
+            </summary>
+        </member>
+        <member name="F:ProjectMotion.CapabilityType.Input">
+            <summary>
+            Represent the capability is a input to the host application
+            </summary>
+        </member>
+        <member name="F:ProjectMotion.CapabilityType.Output">
+            <summary>
+            Represent the capability is a output of the host application
+            </summary>
+        </member>
+        <member name="T:ProjectMotion.MotionDevice">
+            <summary>
+            Device representation for MotionEngine
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionDevice.Name">
+            <summary>
+            Device's friendly name
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionDevice.Id">
+            <summary>
+            Device's ID
+            </summary>
+        </member>
+        <member name="P:ProjectMotion.MotionDevice.Address">
+            <summary>
+            Address of the device
+            </summary>
+        </member>
+        <member name="T:ProjectMotion.MotionEngine">
+            <summary>
+            MotionEngine base class
+            </summary>
+        </member>
+        <member name="F:ProjectMotion.MotionEngine.Input">
+            <summary>
+            Provides functionality for MotionInput
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.#ctor">
+            <summary>
+            Initialize a new MotionEngine
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.PickDevice">
+            <summary>
+            Prompts user to pick a paired bluetooth device using built-in UI
+            </summary>
+            <returns>MotionDevice user picked</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.ListDevices">
+            <summary>
+            <para>Get a list of paired bluetooth device</para>
+            Use the returned MotionDevice to be the parameter of ConnectToDevice
+            </summary>
+            <returns>A list of already paired device</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.ConnectToDevice(ProjectMotion.MotionDevice)">
+            <summary>
+            Connect and initialize a MotionDevice
+            </summary>
+            <param name="device">The device to connect to, use ListDevices() to get the devices</param>
+            <returns>Connection result</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.BeginInput">
+            <summary>
+            Start reading MotionInput
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.StopInput">
+            <summary>
+            Stop reading MotionInput
+            </summary>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.SendData(System.Byte[])">
+            <summary>
+            Send data payload to the connected device
+            </summary>
+            <param name="Payload">The data to send</param>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.BeginPickDevice">
+            <summary>
+            Prompts user to pick a paired bluetooth device using built-in UI
+            </summary>
+            <returns>A MotionDevice user picked</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.BeginListDevices">
+            <summary>
+            Get a list of paired bluetooth device
+            Use the returned MotionDevice to be the parameter of ConnectToDevice
+            </summary>
+            <returns>A list of already paired device</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.BeginConnectToDevice(ProjectMotion.MotionDevice)">
+            <summary>
+            Connect and initialize a MotionDevice
+            </summary>
+            <param name="device">The device to connect to, use ListDevices() to get the devices</param>
+            <returns>Connection result</returns>
+        </member>
+        <member name="M:ProjectMotion.MotionEngine.BeginSendData(System.Byte[])">
+            <summary>
+            Send data payload to the connected device
+            </summary>
+            <param name="Payload">The data to send</param>
+        </member>
+        <member name="T:ProjectMotion.MotionIO">
+            <summary>
+            An abstract underlying layer for all Motion Inputs and Feedbacks
+            </summary>
+        </member>
+    </members>
+</doc>
