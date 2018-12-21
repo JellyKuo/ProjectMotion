@@ -49,5 +49,23 @@ namespace MotionTest
             var intensity = int.Parse(txtF1.Text);
             engine.Vibrate(intensity);
         }
+
+        private void btnI1_Click(object sender, EventArgs e)
+        {
+            engine.BeginInput();
+            var gyroHandler = new ProjectMotion.Input.MotionInputHandler(onGyroUpdateMethod);
+            engine.Input.RegisterHandler(0xf001, gyroHandler);
+        }
+
+        private void onGyroUpdateMethod(string json)
+        {
+            var gyro = engine.Input.DecodeInput<ProjectMotion.Input.Gyro>(json);
+            
+        }
+
+        private void btnI2_Click(object sender, EventArgs e)
+        {
+            engine.Input.DeregisterHandler(0xf001);
+        }
     }
 }
