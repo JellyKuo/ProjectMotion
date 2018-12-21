@@ -62,14 +62,14 @@ public class MEngineController : MonoBehaviour
 
     void btnStartRead_Click()
     {
-        engine.BeginRead();
+        engine.BeginInput();
         var gyroUpdateDelegate = new ProjectMotion.Input.MotionInputHandler(OnGyroUpdate);
         engine.Input.RegisterHandler(ProjectMotion.Input.Gyro.id, gyroUpdateDelegate);
     }
 
     void btnStopRead_Click()
     {
-        engine.StopRead();
+        engine.StopInput();
         engine.Input.DeregisterHandler(ProjectMotion.Input.Gyro.id);
     }
 
