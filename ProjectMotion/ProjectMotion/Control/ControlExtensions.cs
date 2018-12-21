@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMotion.Control
 {
-    internal static partial class ControlExtension
+    internal static partial class ControlExtensions
     {
-
     }
 }
